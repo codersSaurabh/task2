@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Doctor Register</title>
+    <link rel="stylesheet" href="/static/stylereg.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div id="model-content" class="modal">
+        <span
+          class="close"
+          style="display: none"
+          onclick="closeModal('model-content')"
+          >&times;
+        </span>
+        <p style="color:{{color}}">{{msg}}</p>
+      </div>
+
+      <h1>DOCTOR REGISTRATION FORM</h1>
+
+      <form action="#" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <table>
+          <tr>
+            <td>
+              <input type="text" placeholder="FirstName" name="Fname" required />
+            </td>
+            <td>
+              <input type="text" placeholder="LastName" name="Lname" required />
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <input type="email" placeholder="Email" name="email" required />
+            </td>
+            <td>
+              <input type="text" placeholder="User Name" name="Uname" required />
+            </td>
+          <tr>
+            <td>
+              <input
+                type="password"
+                placeholder="Password"
+                name="password"
+                minlength="6"
+                required
+              />
+            </td>
+            <td>
+              <input
+                type="password"
+                placeholder="Confirm Password"
+                name="cpassword"
+                minlength="6"
+                required
+              />
+            </td>
+            
+          </tr>
+
+          
+          <tr>
+            <td>
+              
+               <input type="text" name="country"placeholder="country" required/>
+            </td>
+            
+            <td>
+             <h5>Profile</h5>
+              <input type="file" name="image" id="fileToUpload" required />
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <input type="submit" class="button"value="Register"></td>
+
+          </tr>
+         
+          
+          
+          
+        </table>
+
+      </form>
+       <p>Already have an account <span><a href="/doctorlogin/">login</a></span></p>
+    </div>
+  </body>
+  <script>
+      {% if thank %}
+        document.getElementsByClassName('close')[0].style.display='inline';
+
+    {% endif %}
+    function closeModal(modalId) {
+      var modal = document.getElementById(modalId);
+      modal.style.display = "none";
+    }
+  </script>
+</html>
